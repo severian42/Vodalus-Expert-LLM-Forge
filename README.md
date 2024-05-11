@@ -79,3 +79,9 @@ Execute the main script to start data generation:
 
 ### Configuration
 - Adjust the number of workers and other parameters in `params.py` to optimize performance based on your system's capabilities.
+
+---
+
+# Support This Project
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N4XZ2TZ)
