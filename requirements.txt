@@ -1,0 +1,7 @@
+openai
+datasets
+numpy
+torch
+sentence-transformers
+huggingface-hub
+gradio_client
