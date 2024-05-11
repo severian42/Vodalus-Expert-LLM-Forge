@@ -1,8 +1,14 @@
-# Vodalus App Stack - Dataset Generation Guide
+# Vodalus Expert LLM Forge
+
+### Dataset Crafting, Efficient Fine-Tuning, and Multi-User Deployment Using Only Free Open-Source Tools
+
+---
+
+![vodalus-readme](https://github.com/severian42/Vodalus-Expert-LLM-Forge/assets/133655553/1b926eff-41ed-4516-a128-c9e3edce2770)
 
 ## Stack Components Overview
 
-The Vodalus App Stack includes several key components and functionalities:
+The Vodalus Expert LLM Forge includes several key components and functionalities:
 
 ### *Datasets:*
 - **Data Generation**: Utilizes local language models (LLMs) to generate synthetic data based on Wikipedia content. See `main.py` for implementation details.
