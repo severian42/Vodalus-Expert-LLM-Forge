@@ -86,10 +86,10 @@ Execute the main script to start data generation:
 
 # Support This Project
 
-If this project aids your work, please consider supporting it through a donation at my ko-fi. com/severian42. Your support helps sustain my further LLM developments and experiments, always with a focus on using those efforts to give back to the LLM community
+If this project aids your work, please consider supporting it through a donation at my [Ko-fi - Severian42 Page](Ko-fi.com/severian42). Your support helps sustain my further LLM developments and experiments, always with a focus on using those efforts to give back to the LLM community
 
 Also, if you love this concept and approach but don't want to do it yourself, you can hire me and we will work together to accomplish your ideal Expert LLM! I also offer 1-on-1 sessions to help with your LLM needs.
 
-Feel free to reach out! You can find the details on my Ko-Fi: Ko-fi.com/severian42[![Ko-fi - Severian42 Page](Ko-fi.com/severian42)
+Feel free to reach out! You can find the details on my Ko-Fi: [Ko-fi - Severian42 Page](Ko-fi.com/severian42)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N4XZ2TZ)
