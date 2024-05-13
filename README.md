@@ -48,8 +48,8 @@ For more detailed information on each component, refer to the respective guides 
 2. Navigate to the project directory in your command line interface.
 3. Run the following commands to set up the environment:
 ---
-- Create env: conda create -n vodalus -y
-- conda activate vodalus
+- `Create env: conda create -n vodalus -y`
+- `conda activate vodalus`
 - `pip install -r requirements.txt`
 ---
 
