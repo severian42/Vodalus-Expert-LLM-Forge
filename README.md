@@ -1,6 +1,6 @@
 # Vodalus Expert LLM Forge
 
-### Dataset Crafting, Efficient Fine-Tuning, and Multi-User Deployment Using Only Free Open-Source Tools
+### Dataset Crafting and Efficient Fine-Tuning Using Only Free Open-Source Tools
 
 ---
 
