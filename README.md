@@ -17,7 +17,7 @@ The Vodalus Expert LLM Forge includes several key components and functionalities
 
 - **RAG and Wikipedia Content Processing**: Uses RAG as well as processes and searches Wikipedia content to find relevant details to use as ground truth.
 
-  *While I'm releasing this tool for free, I've also completed an extensive tutorial/course with lots of videos and instructions that guide you through each step of maximizing the potential of this stack. This course is available for purchase at [Vodalus LLM Course](https://ko-fi.com/s/076479f834) and is designed to enhance your experience and results with the Vodalus Expert LLM Forge.*
+  *While I'm releasing this tool for free, I've also completed an extensive tutorial/course with lots of videos and instructions that guide you through each step of maximizing the potential of this stack and also teach you about the theory and concepts behind each part of the process. This course is available for purchase at [Vodalus LLM Course](https://ko-fi.com/s/076479f834) and is designed to enhance your experience and results with the Vodalus Expert LLM Forge.*
   
 ![Vodalus - Starting the Crafting](https://github.com/severian42/Vodalus-Expert-LLM-Forge/assets/133655553/418ddde4-8073-4b6b-9a01-d63863d41782)
 
