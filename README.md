@@ -15,7 +15,7 @@ The Vodalus Expert LLM Forge includes several key components and functionalities
 
 - **LLM Interaction**: Manages interactions with LLMs through the `llm_handler.py`, which configures and handles messaging with the LLM.
 
-- **RAG with AnythingLLM and Wikipedia Content Processing**: Can use the AnyhthingLLM RAG engine (must be configured to your workspace) as well as process and search Wikipedia content to find relevant details to use as ground truth.
+- **RAG with AnythingLLM and Wikipedia Content Processing**: Can use the AnythingLLM RAG engine (must be configured to your workspace) as well as process and search Wikipedia content to find relevant details to use as ground truth.
 
   *While I'm releasing this tool for free, I've also completed an extensive tutorial/course with lots of videos and instructions that guide you through each step of maximizing the potential of this stack and also teach you about the theory and concepts behind each part of the process. This course is available for purchase at [Vodalus LLM Course](https://ko-fi.com/s/076479f834) and is designed to enhance your experience and results with the Vodalus Expert LLM Forge.*
   
