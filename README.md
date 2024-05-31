@@ -24,7 +24,7 @@ The Vodalus Expert LLM Forge includes several key components and functionalities
 ---
 
 ### *Fine-Tuning and Quantization:*
-- **Model Training and Fine-Tuning**: Supports training and fine-tuning with either MLX or Unsloth with custom your datasets.
+- **Model Training and Fine-Tuning**: Supports training and fine-tuning with either MLX or Unsloth with your custom datasets.
 
 - **Quantizing Models**: Guides on quantizing models to GGUF format for efficient local execution, as described in the Quantize_GGUF guide.
 
