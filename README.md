@@ -11,7 +11,7 @@
 The Vodalus Expert LLM Forge includes several key components and functionalities:
 
 ### *Datasets:*
-- **Data Generation**: Utilizes local language models (LLMs) to generate synthetic data based on Wikipedia content. See `main.py` for implementation details.
+- **Data Generation**: Utilizes LLMs to generate synthetic data based on Wikipedia content. See `main.py` for implementation details.
 
 - **LLM Interaction**: Manages interactions with LLMs through the `llm_handler.py`, which configures and handles messaging with the LLM.
 
