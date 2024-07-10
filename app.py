@@ -311,7 +311,7 @@ async def run_generate_dataset(num_workers, num_generations, output_file_path, s
 demo = gr.Blocks()
 
 with demo:
-    gr.Markdown("# JSONL Dataset Editor and Annotation Tool")
+    gr.Markdown("# Vodalus Dataset Editor and Annotation Tool")
 
     config = gr.State(load_annotation_config())
 
