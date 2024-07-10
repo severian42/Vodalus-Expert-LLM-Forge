@@ -4,6 +4,10 @@
 
 The Vodalus App Stack includes several key components and functionalities:
 
+<div align="center">
+  <img src="assets/gradioui.png" alt="Vodalus UI" style="width: 100%; max-width: 600px;" />
+</div>
+
 ### *Datasets:*
 - **Data Generation**: Utilizes local language models (LLMs) to generate synthetic data based on Wikipedia content. See `main.py` for implementation details.
 
