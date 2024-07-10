@@ -5,7 +5,7 @@
 The Vodalus App Stack includes several key components and functionalities:
 
 <div align="center">
-  <img src="assets/gradioui.png" alt="Vodalus UI" style="width: 100%; max-width: 600px;" />
+  <img src="vodui.png" alt="Vodalus UI" style="width: 100%; max-width: 600px;" />
 </div>
 
 ### *Datasets:*
