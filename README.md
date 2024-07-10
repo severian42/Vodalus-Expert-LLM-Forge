@@ -48,7 +48,8 @@ For more detailed information on each component, refer to the respective guides 
 ### Running the Application
 Execute the main script to start data generation:
 - `python main.py`
-- `gradio app.py`
+  OR
+- `gradio app.py` to use the Gradio UI
 ---
 
 ## Key Components
