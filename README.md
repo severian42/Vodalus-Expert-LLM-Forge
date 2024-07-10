@@ -8,6 +8,11 @@ The Vodalus App Stack includes several key components and functionalities:
   <img src="vodui.png" alt="Vodalus UI" style="width: 100%; max-width: 600px;" />
 </div>
 
+*Here is an online demo of the UI. 
+Keep in mind that the demo is more for testing the UI since it is not actually linked to any LLM as this is mainly a local-based app:* 
+
+https://severian-vodalus.hf.space
+
 ### *Datasets:*
 - **Data Generation**: Utilizes local language models (LLMs) to generate synthetic data based on Wikipedia content. See `main.py` for implementation details.
 
