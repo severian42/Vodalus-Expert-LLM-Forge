@@ -26,6 +26,35 @@ The Vodalus App Stack includes several key components and functionalities:
 
 ---
 
+### *Gradio User Interface:*
+The new Gradio UI (`app.py`) provides a comprehensive interface for managing and interacting with the Vodalus App Stack:
+
+- **Dataset Editor**: 
+  - Load, view, and edit JSONL datasets
+  - Navigate through dataset entries
+  - Convert between JSON and Markdown formats
+  - Annotate entries with quality ratings, tags, and additional notes
+  - Preview entries with metadata
+
+- **Annotation Configuration**: 
+  - Customize quality scales, tag categories, and free-text fields
+  - Save and load annotation configurations
+
+- **Dataset Configuration**: 
+  - Edit system messages, prompts, and topics used for data generation
+  - Save dataset configurations
+
+- **Dataset Generation**: 
+  - Generate new dataset entries using configured parameters
+  - Specify number of workers and generations
+  - View generation status and output
+
+- **AI Assistant**: 
+  - Chat with an AI assistant for help with annotation and quality checking
+  - Choose between local and remote LLM options
+
+---
+
 ### *Designed for All Levels of Users:*
 - **Comprehensive Documentation**: Each component is accompanied by detailed guides and instructions to assist users in setup, usage, and customization.
 
@@ -52,8 +81,7 @@ For more detailed information on each component, refer to the respective guides 
 ### Running the Application
 Execute the main script to start data generation:
 - `python main.py`
-  OR
-- `gradio app.py` to use the Gradio UI
+- `gradio app.py`
 ---
 
 ## Key Components
@@ -73,7 +101,18 @@ Execute the main script to start data generation:
 
 ## Usage Instructions
 
+### Using the Gradio UI
+1. Launch the Gradio UI by running `python app.py`.
+2. Use the different tabs to manage datasets, configurations, and generate new data.
+3. Utilize the AI Assistant for help with annotation and quality checking.
+
 ### Modifying Topics and System Messages
+- Use the "Dataset Configuration" tab in the Gradio UI to modify topics and system messages.
+
+### Configuration
+- Adjust the number of workers and other parameters in the "Dataset Generation" tab of the Gradio UI.
+
+***ALTERNATE Way of Modifying Topics and System Messages***
 - To change the topics, edit `topics.py`.
 - To modify system messages, adjust `system_messages.py`.
 
