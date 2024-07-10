@@ -35,11 +35,12 @@ You are an AI assistant with a dynamic learning and reasoning capability. Begin 
 msg_context = {"role": "system", "content": str(PROMPT_1)}
 
 # Define a function to generate data based on a given topic and system messages
-def generate_data(
+async def generate_data(
     topic_selected,
     system_message_generation,
     system_message_selected,
-    OUTPUT_FILE_PATH,
+    output_file_path,
+    llm_provider
 ):
     # Fetch Wikipedia content for the selected topic
     wikipedia_info = search_wikipedia(topic_selected)
@@ -57,7 +58,7 @@ def generate_data(
     msg_list = [msg_context, {"role": "user", "content": f"Generate a question based on the SUBJECT_AREA: {topic_selected}"}]
 
     # Send to LLM for question generation
-    question, _ = send_to_llm(PROVIDER, msg_list)
+    question, _ = send_to_llm(llm_provider, msg_list)
 
     # Prepare message list for LLM to generate the answer
     msg_list_answer = [
@@ -66,20 +67,20 @@ def generate_data(
     ]
 
     # Send to LLM for answer generation
-    answer, llm_usage = send_to_llm(PROVIDER, msg_list_answer)
+    answer, _ = send_to_llm(llm_provider, msg_list_answer)
 
-    # Prepare data for output
+    # Prepare data for output (excluding usage information)
     data = {
-        "system": system_message_selected,  # Use the original system message for dataset
+        "system": system_message_selected,
         "instruction": question,
-        "response": answer,
+        "response": answer
     }
 
     # Write to output file
-    with open(OUTPUT_FILE_PATH, "a") as output_file:
+    with open(output_file_path, "a") as output_file:
         output_file.write(json.dumps(data) + "\n")
 
-    return data, llm_usage
+    return data
 
 # Define the main function to orchestrate the data generation process
 def main():
@@ -101,23 +102,23 @@ def main():
                     system_message_generation,
                     system_message_selected,
                     OUTPUT_FILE_PATH,
+                    PROVIDER
                 )
             )
 
         # Wait for all futures to complete
         for future in futures:
-            data, gpt_usage = future.result()
-            if gpt_usage is not None:
+            data = future.result()
+            if data:
                 nn += 1
                 print(data)
                 print(
-                    f"Generation {nn} Complete, Token usage: {gpt_usage}, Failed: {failed}"
+                    f"Generation {nn} Complete"
                 )
             else:
                 failed += 1
             print("=" * 132)
 
 
-while True:
+if __name__ == "__main__":
     main()
-

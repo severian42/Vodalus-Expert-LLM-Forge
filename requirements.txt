@@ -5,3 +5,8 @@ torch
 sentence-transformers
 huggingface-hub
 gradio_client
+gradio
+mlc_llm
+uvloop
+aiohttp
+backoff
