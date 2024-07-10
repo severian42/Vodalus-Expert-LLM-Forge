@@ -4,4 +4,3 @@ mlx_lm
 torch
 numpy
 transformers
-datasets
