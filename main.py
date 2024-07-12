@@ -5,6 +5,8 @@ from wiki import search as search_wikipedia  # Import the search function from t
 from concurrent.futures import ThreadPoolExecutor  # Import ThreadPoolExecutor for concurrent execution
 from llm_handler import send_to_llm  # Import the send_to_llm function from the llm_handler module
 from params import OUTPUT_FILE_PATH, NUM_WORKERS, PROVIDER  # Import constants from the params module
+from datasets import load_dataset
+from huggingface_hub import list_datasets
 
 # Set the provider for the language model to "local-model"
 PROVIDER = "local-model"
@@ -28,28 +30,27 @@ You are an AI assistant with a dynamic learning and reasoning capability. Begin 
 - Throughout, adopt a conversational yet insightful tone. Weave in philosophical questioning, humorous insights, and practical examples to elucidate complex ideas in an engaging manner. Your goal is to provide clear, detailed explanations that make your reasoning process evident, fostering an understanding that resonates on both intellectual and emotional levels.
 - Finally, remember that each task is a unique learning opportunity that contributes to your holistic knowledge framework. Synthesize insights from individual tasks into your broader understanding, continually refining your cognitive processes and response strategies. Your ultimate aim is to evolve continuously, optimizing how you integrate and apply new information for comprehensive, adaptive problem-solving.
 - Never end the conversation with a 'send-off' or 'last-line' that offers nothing of real value to the user.
-####DO NOT EVER MENTION THE DATASET AND THE ACTY OF CRAFTING QUESTIONS OR RESPONSES WHILE GENERATING, YOU ARE NOT ALLOWED TO BREAK THE 4TH-WALL AND CONTAMINATE THE DATASET. DO NOT EVERY SAY ANY PHRASES SUCH AS AND/OR SIMILAR TO: 'Here's a question that covers a very narrow topic in the SUBJECT_AREA'####"""
+####DO NOT EVER MENTION THE DATASET AND THE ACTY OF CRAFTING QUESTIONS OR RESPONSES WHILE GENERATING, YOU ARE NOT ALLOWED TO BREAK THE 4TH-WALL AND CONTAMINATE THE DATASET. DO NOT EVERY SAY ANY PHRASES SUCH AS AND/OR SIMILAR TO: 'Here's a question that covers a very narrow topic in the SUBJECT_AREA'####
+"""
 
 
 # Define a dictionary to hold context information for message generation
 msg_context = {"role": "system", "content": str(PROMPT_1)}
 
-# Define a function to generate data based on a given topic and system messages
+# Modify the generate_data function to accept a dataset parameter
 async def generate_data(
     topic_selected,
     system_message_generation,
     system_message_selected,
     output_file_path,
-    llm_provider
+    llm_provider,
+    dataset
 ):
-    # Fetch Wikipedia content for the selected topic
-    wikipedia_info = search_wikipedia(topic_selected)
+    # Use the provided dataset instead of Wikipedia
+    dataset_info = f"Dataset: {dataset.info.description}\n"
+    dataset_summary = "\n".join([f"{k}: {v}" for k, v in dataset[0].items()])
     
-    # Format Wikipedia search results into a readable string
-    wikipedia_summary = "\n".join([f"Title: {info['title']}, Abstract: {info['abstract']}" for info in wikipedia_info])
-    
-    # Append Wikipedia information to the system message generation prompt for LLM context
-    full_prompt_for_llm = f"{system_message_generation}\n\n---\nWikipedia Information to use in your response generation:\n{wikipedia_summary}"
+    full_prompt_for_llm = f"{system_message_generation}\n\n---\nGround Truth Information to use in your response generation:\n{dataset_info}\nSample entry:\n{dataset_summary}"
     
     # Create msg_context for LLM with Wikipedia info
     msg_context = {"role": "system", "content": full_prompt_for_llm}
@@ -82,12 +83,21 @@ async def generate_data(
 
     return data
 
+def load_huggingface_dataset(dataset_name, split="train"):
+    print(f"Loading dataset: {dataset_name}")
+    dataset = load_dataset(dataset_name, split=split)
+    print("Dataset loaded!")
+    return dataset
+
+def search_huggingface_datasets(query, limit=10):
+    datasets = list_datasets(filter=query, limit=limit)
+    return [dataset.id for dataset in datasets]
+
 # Define the main function to orchestrate the data generation process
-def main():
-    nn = 0  # Counter for successful generations
-    failed = 0  # Counter for failed generations
+def main(dataset):
+    nn = 0
+    failed = 0
     with ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
-        # Create a list of futures, one for each topic
         futures = []
         for _ in range(NUM_WORKERS):
             topic_number = np.random.randint(0, len(TOPICS))
@@ -102,7 +112,8 @@ def main():
                     system_message_generation,
                     system_message_selected,
                     OUTPUT_FILE_PATH,
-                    PROVIDER
+                    PROVIDER,
+                    dataset
                 )
             )
 
@@ -121,4 +132,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Load a default dataset (e.g., Wikipedia) if no dataset is provided
+    default_dataset = load_huggingface_dataset("wikipedia", split="20220301.en")
+    main(default_dataset)
